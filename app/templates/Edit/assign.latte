@@ -1,0 +1,18 @@
+{block content}
+
+	<h3>Přiřadit tým k projektu</h3>
+	{form assignForm}
+		<div class="row">
+			<div class="col-md-2">{label team /}</div>
+			<div class="col-md-4">{input team}</div>
+		</div>
+		<div class="row">
+            <div class="col-md-2">{label project /}</div>
+            <div class="col-md-4">{input project}</div>
+        </div>
+		<div class="row">
+            <div class="col-md-12">{input assign 'class' => 'btn bnt-success bnt-bg'}</div>
+		</div>
+	{/form}
+
+{/block}

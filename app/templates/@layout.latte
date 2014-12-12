@@ -1,0 +1,72 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>{ifset #title}{include title|striptags} | {/ifset}DBS 6 | Filip Klimeš</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/font-awesome.min.css">
+	{block head}{/block}
+</head>
+
+<body>
+	<script> document.documentElement.className+=' js' </script>
+
+	<nav class="navbar navbar-default navbar-static" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">DBS 6</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a n:href="Homepage:default">Přehled</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Úpravy <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a n:href="Edit:team">Přidat tým</a></li>
+                <li><a n:href="Edit:project">Přidat projekt</a></li>
+                <li><a n:href="Edit:assign">Přiřadit tým k projektu</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Info</li>
+                <li><a n:href="Homepage:about">O projektu</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<div class="container">
+
+		<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+		<div class="page-header">
+			<h1>A7B36DBS - Úkol 6</h1>
+		</div>
+
+		{include content}
+
+	</div>
+
+	{block scripts}
+	<script src="{$basePath}/js/jquery.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	<script src="{$basePath}/js/bootstrap.min.js"></script>
+	{/block}
+</body>
+</html>

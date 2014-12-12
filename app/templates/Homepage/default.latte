@@ -1,0 +1,49 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+
+	<h3>Tabulka <span>team</span></h3>
+
+	{snippet teams}
+		<div class="row">
+	        <div class="col-md-2"><strong>ID</strong></div>
+	        <div class="col-md-2"><strong>Jméno</strong></div>
+	        <div class="col-md-8"><strong>Assigned projects</strong></div>
+	    </div>
+		{foreach $teams as $team}
+			<div class="row">
+				<div class="col-md-2">{$team->id}</div>
+				<div class="col-md-2">{$team->team_name}</div>
+				<div class="col-md-6">{$team->projects}</div>
+				<div class="col-md-2">
+					<a n:href="Edit:team $team->id"><i class="fa fa-edit"></i></a>
+					<a n:href="deleteTeam! $team->id"><i class="fa fa-times"></i></a>
+				</div>
+			</div>
+		{/foreach}
+	{/snippet}
+
+	<hr>
+
+	<h3>Tabulka <span>project</span></h3>
+
+	{snippet projects}
+		<div class="row">
+	        <div class="col-md-2"><strong>ID</strong></div>
+	        <div class="col-md-2"><strong>Jméno</strong></div>
+	        <div class="col-md-8"><strong>Assigned teams</strong></div>
+	    </div>
+	    {foreach $projects as $project}
+	        <div class="row">
+	            <div class="col-md-2">{$project->id}</div>
+	            <div class="col-md-2">{$project->name}</div>
+	            <div class="col-md-6">{$project->teams}</div>
+				<div class="col-md-2">
+					<a n:href="Edit:project $project->id"><i class="fa fa-edit"></i></a>
+					<a n:href="deleteProject! $project->id"><i class="fa fa-times"></i></a>
+				</div>
+	        </div>
+	    {/foreach}
+    {/snippet}
+
+{/block}

@@ -1,0 +1,14 @@
+{block content}
+
+	<h3>{if $id !== null}Upravit{else}Přidat{/if} projekt</h3>
+	{form addProjectForm}
+		<div class="row">
+			<div class="col-md-2">{label name /}</div>
+			<div class="col-md-4">{input name}</div>
+		</div>
+		<div class="row">
+            <div class="col-md-12">{input save 'class' => 'btn bnt-success bnt-bg'}</div>
+		</div>
+	{/form}
+
+{/block}
